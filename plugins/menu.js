@@ -7,38 +7,50 @@ import { join } from 'path'
 import { xpRange } from '../lib/levelling.js'
 import moment from 'moment-timezone'
 import { platform as getPlatform } from 'os'
-
 const defaultMenu = {
   before: `
-• *Nama:* %name
-• *Nomor:* %phoneNumber
-• *Premium:* %prems
-• *Limit:* %limit
-• *Role:* %role
+╭━━━〔 ☬ SHADOW REALM ☬ 〕━━━⬣
+┃ 𖤓 Name: Sung Jinwoo
+┃ 𖤓 ID: %phoneNumber
+┃ 𖤓 Status: Shadow Monarch
+┃ 𖤓 Rank: National Level Hunter
+╰━━━━━━━━━━━━━━━━⬣
 
+⚔️ SYSTEM AWAKENING ⚔️
 *${ucapan()}* %name!
-• *Tanggal:* %week %weton
-• *Date:* %date
-• *Tanggal Islam:* %dateIslamic
-• *Waktu:* %time
 
-• *Nama Bot:* %me
-• *Mode:* %mode
-• *Prefix:* [ *%_p* ]
-• *Platform:* %platform
-• *Type:* Node.JS
-• *Uptime:* %muptime
-• *Database:* %rtotalreg dari %totalreg
+📜 RECORD STATUS
+• Date: %week %weton
+• Day: %date
+• Islamic: %dateIslamic
+• Time: %time
 
-╭─────「 *INFO CMD* 」
-│ *Ⓟ* = Premium
-│ *Ⓛ* = Limit
-╰─────────────
+━━━━━━━━━━━━━━━━━━
+🖤 SHADOW CORE INFO
+• Bot System: Shadow Army Core
+• Mode: %mode
+• Prefix: [ %_p ]
+• Platform: %platform
+• Engine: Node.js
+• Uptime: %muptime
+• Hunters Database: %rtotalreg / %totalreg
+
+━━━━━━━━━━━━━━━━━━
+⚙️ COMMAND LEGEND
+│ Ⓟ = Premium Skill
+│ Ⓛ = Energy Cost
+╰━━━━━━━━━━━━━━━━⬣
   `.trimStart(),
-  header: '╭─────『 %category 』',
-  body: '  ⫸ %cmd %isPremium %islimit',
-  footer: '╰–––––––––––––––༓',
-  after: ``,
+
+  header: `
+╭━━━〔 %category 〕━━━⬣
+`,
+
+  body: `┃ ✦ %cmd %isPremium %islimit`,
+
+  footer: `╰━━━━━━━━━━━━━━━━⬣`,
+
+  after: ``
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
@@ -119,7 +131,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 
     let { age, exp, limit, level, role, registered, money } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
-    let name = m.pushName || await conn.getName(m.sender)
+    let name = Sung Jinwoo || await conn.getName(m.sender)
     let phoneNumber = m.sender.split('@')[0]
     let premium = global.db.data.users[m.sender].premiumTime
     let prems = `${premium > 0 ? 'Premium' : 'Free'}`
