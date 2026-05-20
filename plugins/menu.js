@@ -46,12 +46,19 @@ const defaultMenu = {
 ╭━━━〔 %category 〕━━━⬣
 `,
 
-  body: `┃ ✦ %cmd %isPremium %islimit`,
+    body: `┣ ✦ %_p%cmd`,
 
-  footer: `╰━━━━━━━━━━━━━━━━⬣`,
 
-  after: ``
-}
+  footer: `╰━━━━━━━━━━━━━━\n`,
+
+    after: `
+╭━━━〔 STATUS 〕━━━⬣
+┃ ✦ User: %name
+┃ ✦ Premium: %prems
+┃ ✦ Commands: %totalcmds
+┃ ✦ Runtime: %muptime
+╰━━━━━━━━━━━━━━━━⬣`,
+
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 
