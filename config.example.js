@@ -1,6 +1,6 @@
 /*
-Author : Shirokami Ryzen 
-WA : +6285174269046
+Author : Sung Jinwoo 
+WA : +2347049287601
 Base : Elaina-MultiDevice
 Release : 22 Nov 2022
 */
